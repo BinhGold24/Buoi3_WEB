@@ -1,0 +1,16 @@
+﻿@model Buoi5.Models.Book
+
+@{
+    ViewData["Title"] = "Chi tiết sách";
+}
+
+<h2>Chi tiết sách: @Model.Name</h2>
+
+<div style="border: 1px solid #ccc; padding: 15px; width: 320px; border-radius: 4px; background-color: #fafafa;">
+    <p><strong>Mã sách (Id):</strong> @Model.Id</p>
+    <p><strong>Tên sách:</strong> @Model.Name</p>
+    <p><strong>Giá tiền:</strong> $@Model.Price</p>
+</div>
+
+<br />
+<a asp-action="Index" style="color: #007bff; text-decoration: none;">⬅ Quay lại danh sách</a>

@@ -1,0 +1,47 @@
+﻿@model Buoi3.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Đăng nhập";
+}
+
+<h2>Đăng nhập Hệ thống</h2>
+
+@if (ViewBag.Message != null)
+{
+    <div style="padding: 10px; margin-bottom: 15px; color: white; background-color: @(ViewBag.IsSuccess ? "green" : "red");">
+        @ViewBag.Message
+    </div>
+}
+
+<form asp-controller="Account" asp-action="Login" method="post">
+    <div style="margin-bottom: 10px;">
+        <label>Username:</label><br />
+        <input type="text" asp-for="Username" required />
+    </div>
+
+    <div style="margin-bottom: 10px;">
+        <label>Password:</label><br />
+        <input type="password" asp-for="Password" id="myPassword" required />
+    </div>
+
+    <div style="margin-bottom: 15px;">
+        <input type="checkbox" onclick="togglePassword()" id="showPass">
+        <label for="showPass" style="cursor: pointer;">Hiển thị mật khẩu</label>
+    </div>
+
+    <button type="submit" style="padding: 5px 15px;">Login</button>
+</form>
+
+<script>
+    function togglePassword() {
+     
+        var passInput = document.getElementById("myPassword");
+
+        if (passInput.type === "password") {
+            passInput.type = "text";
+        } else {
+
+            passInput.type = "password";
+        }
+    }
+</script>
